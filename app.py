@@ -8,8 +8,8 @@ warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
 
-MODEL_PATH = r"C:\Users\sivan\OneDrive - MSFT\Intership\output\Gradient.pkl"
-SCALER_PATH = r"C:\Users\sivan\OneDrive - MSFT\Intership\output\scaler.pkl"
+MODEL_PATH = r"./output/Gradient.pkl"
+SCALER_PATH = r"./output/scaler.pkl"
 
 model = pickle.load(open(MODEL_PATH, "rb"))
 scaler = pickle.load(open(SCALER_PATH, "rb"))
