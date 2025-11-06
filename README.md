@@ -234,6 +234,6 @@ z = \frac{x - \mu}{\sigma}
 
 **Madhala. Siva Narayana Surya Chandra**
 Machine Learning Enthusiast | Data Science Practitioner
-📧 Contact: [[your.email@example.com](mailto:sivanarayana9347@gmail.com)]
-📍 Render Deployment: [[Your Render App URL](https://churn-prediction-dl8l.onrender.com/)]
+📧 Contact: [[gmail](mailto:sivanarayana9347@gmail.com)]
+📍 Render Deployment: [[Link](https://churn-prediction-dl8l.onrender.com/)]
 
