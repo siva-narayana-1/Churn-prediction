@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section">
+  <header class="section-header">
+    <h1>📘 README — IBM Customer Churn Prediction</h1>
+    <p>End-to-end project overview: EDA → Feature Engineering → Modeling → Deployment</p>
+  </header>
+
+  <article class="card glass doc">
+    <h2>Project Overview</h2>
+    <p>Predict <strong>customer churn</strong> for a telecom company using the IBM sample dataset. The pipeline includes
+      EDA, feature engineering, class balancing, model training, evaluation, and web deployment with Flask + Render.</p>
+
+    <h2>Dataset</h2>
+    <ul class="list">
+      <li><strong>Rows:</strong> 7043 • <strong>Target:</strong> Churn (Yes/No)</li>
+      <li>Key features: gender, partner/dependents, InternetService, PaymentMethod, Contract, Tenure, MonthlyCharges, TotalCharges</li>
+    </ul>
+
+    <h2>Workflow</h2>
+    <ol class="list">
+      <li><strong>EDA:</strong> Month-to-month contracts and fiber optic users churn more; customers without dependents/partner churn more.</li>
+      <li><strong>Missing Values:</strong> KNN, Simple, Iterative, Mean/Median, Arbitrary, RandomSample → <em>finalized</em> <strong>IterativeImputer</strong>.</li>
+      <li><strong>Variable Transformations:</strong> Log, Sqrt, Cbrt, Power, Quantile, Tanh → <em>finalized</em> <strong>QuantileTransformer</strong> (normal output).</li>
+      <li><strong>Outliers:</strong> Winsorizer (IQR/Gaussian/Quantile/MAD), IsolationForest, Quantile clip → <em>finalized</em> <strong>Gaussian Winsorizer</strong>.</li>
+      <li><strong>Encoding:</strong> Ordinal (Contract), One-Hot (nominals), manual mapping (sim), Label (target).</li>
+      <li><strong>Feature Selection:</strong> VarianceThreshold, Chi², ANOVA, t-Test, SelectKBest.</li>
+      <li><strong>Balancing:</strong> <strong>SMOTE</strong> to 50:50.</li>
+      <li><strong>Scaling:</strong> <strong>StandardScaler</strong> (z = (x−μ)/σ).</li>
+      <li><strong>Models:</strong> LR, KNN, GNB, DT, RF, XGB, SVC, GBC — compare Accuracy/Precision/Recall/F1/ROC-AUC.</li>
+    </ol>
+
+    <h2>Model & Metrics</h2>
+    <ul class="list">
+      <li>Strong results with <strong>Gradient Boosting</strong> and <strong>Logistic Regression</strong>.</li>
+      <li>Typical AUC ~ <strong>0.86–0.88</strong>, Accuracy ~ <strong>0.79–0.81</strong> (with SMOTE).</li>
+    </ul>
+
+    <h2>Deployment</h2>
+    <ul class="list">
+      <li><strong>Backend:</strong> Flask</li>
+      <li><strong>Hosting:</strong> Render (GitHub auto-deploy)</li>
+      <li>Artifacts: <code>model.pkl</code>, <code>scaler.pkl</code></li>
+    </ul>
+
+    <h2>Tech Stack</h2>
+    <p>Python, NumPy, Pandas, Matplotlib, Seaborn, scikit-learn, feature-engine, imblearn, XGBoost, Flask, Render.</p>
+
+    <h2>Key Insights</h2>
+    <ul class="list">
+      <li>Month-to-month contract, fiber optic users, and no dependents/partner → higher churn risk.</li>
+      <li>Electronic check payment correlates with higher churn.</li>
+      <li>Tenure and contract length are strong predictors.</li>
+    </ul>
+
+    <h2>Author</h2>
+    <p><strong>M. Siva Narayana Surya Chandra</strong> — ML & Data Science</p>
+  </article>
+
+  <div class="center mt-lg">
+    <a href="/" class="btn">🔍 Back to Prediction</a>
+  </div>
+</section>
+{% endblock %}

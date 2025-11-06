@@ -29,47 +29,59 @@ ordinal_encoder = OrdinalEncoder(categories=contract_order, handle_unknown='use_
 
 def preprocess_input(form_dict):
     df = pd.DataFrame([form_dict])
+
+    # to_numeric where possible
     for c in df.columns:
         try:
             df[c] = pd.to_numeric(df[c])
-        except:
+        except Exception:
             pass
 
+    # custom sim mapping
     if 'sim' in df.columns:
         df['sim'] = df['sim'].map(sim_map).fillna(0)
 
+    # ordinal encode Contract
     if 'Contract' in df.columns:
         df['Contract'] = ordinal_encoder.fit_transform(df[['Contract']])
 
+    # one-hot encode nominal cols (if present)
     df = pd.get_dummies(df, columns=[col for col in nominal_cols if col in df.columns], drop_first=False)
 
-    df['MonthlyCharges_qt_outl'] = df.get('MonthlyCharges', df.get('MonthlyCharges_itimp', 0))
-    df['TotalCharges_qt_outl'] = df.get('TotalCharges', df.get('TotalCharges_itimp', 0))
+    # ensure scaled feature columns exist
+    df['MonthlyCharges_qt_outl'] = df.get('MonthlyCharges_qt_outl', df.get('MonthlyCharges', df.get('MonthlyCharges_itimp', 0)))
+    df['TotalCharges_qt_outl']   = df.get('TotalCharges_qt_outl',   df.get('TotalCharges',   df.get('TotalCharges_itimp',   0)))
 
+    # scale
     scale_cols = ['MonthlyCharges_qt_outl', 'TotalCharges_qt_outl']
     df[scale_cols] = scaler.transform(df[scale_cols])
 
+    # align to trained model features
     for col in model_features:
         if col not in df.columns:
             df[col] = 0
-
     df_final = df.reindex(columns=model_features, fill_value=0)
     return df_final
 
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', title='Prediction')
 
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', title='About Model')
 
 
 @app.route('/developer')
 def developer():
-    return render_template('developer.html')
+    return render_template('developer.html', title='Developer')
+
+
+@app.route('/readme')
+def readme():
+    return render_template('readme.html', title='README')
 
 
 @app.route('/predict', methods=['POST'])
@@ -80,7 +92,7 @@ def predict():
         prediction = model.predict(X_final)[0]
         try:
             probability = model.predict_proba(X_final)[0][1]
-        except:
+        except Exception:
             probability = None
 
         if prediction == 1:
@@ -88,11 +100,10 @@ def predict():
         else:
             result = f"✅ Customer likely to STAY (prob={probability:.2f})" if probability is not None else "✅ Customer likely to STAY"
 
-        return render_template('result.html', prediction_text=result)
+        return render_template('result.html', title='Prediction', prediction_text=result)
     except Exception as e:
-        return render_template('result.html', prediction_text=f"Error: {str(e)}")
+        return render_template('result.html', title='Prediction', prediction_text=f"Error: {str(e)}")
 
 
 if __name__ == "__main__":
     app.run()
-

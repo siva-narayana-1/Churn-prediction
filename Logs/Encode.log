@@ -938,3 +938,97 @@ Name: Churn, Length: 1409, dtype: object
 5002     No
 1161    Yes
 Name: Churn, Length: 1409, dtype: object
+2025-11-06 14:47:55,202 - INFO - Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines',
+       'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection',
+       'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract',
+       'PaperlessBilling', 'PaymentMethod', 'sim'],
+      dtype='object')
+2025-11-06 14:47:55,215 - INFO - (5634, 1)
+2025-11-06 14:47:55,215 - INFO -       Contract
+2142       1.0
+1623       2.0
+6074       0.0
+1362       0.0
+6754       2.0
+...        ...
+3772       0.0
+5191       2.0
+5226       0.0
+5390       0.0
+860        1.0
+
+[5634 rows x 1 columns]
+2025-11-06 14:47:55,235 - INFO - One-hot encoded columns: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'PaperlessBilling', 'PaymentMethod']
+2025-11-06 14:47:55,235 - INFO - Resulting shape: (5634, 26)
+2025-11-06 14:47:55,249 - INFO - None
+2025-11-06 14:47:55,249 - INFO - 2142     No
+1623     No
+6074    Yes
+1362    Yes
+6754     No
+       ... 
+3772    Yes
+5191     No
+5226     No
+5390    Yes
+860      No
+Name: Churn, Length: 5634, dtype: object
+2025-11-06 14:47:55,249 - INFO - 2142     No
+1623     No
+6074    Yes
+1362    Yes
+6754     No
+       ... 
+3772    Yes
+5191     No
+5226     No
+5390    Yes
+860      No
+Name: Churn, Length: 5634, dtype: object
+2025-11-06 14:47:55,249 - INFO - Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines',
+       'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection',
+       'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract',
+       'PaperlessBilling', 'PaymentMethod', 'sim'],
+      dtype='object')
+2025-11-06 14:47:55,249 - INFO - (1409, 1)
+2025-11-06 14:47:55,266 - INFO -       Contract
+185        0.0
+2715       0.0
+3825       2.0
+1807       0.0
+132        2.0
+...        ...
+6366       2.0
+315        1.0
+2439       1.0
+5002       2.0
+1161       0.0
+
+[1409 rows x 1 columns]
+2025-11-06 14:47:55,282 - INFO - One-hot encoded columns: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'PaperlessBilling', 'PaymentMethod']
+2025-11-06 14:47:55,282 - INFO - Resulting shape: (1409, 26)
+2025-11-06 14:47:55,282 - INFO - None
+2025-11-06 14:47:55,290 - INFO - 185     Yes
+2715     No
+3825     No
+1807    Yes
+132      No
+       ... 
+6366     No
+315      No
+2439     No
+5002     No
+1161    Yes
+Name: Churn, Length: 1409, dtype: object
+2025-11-06 14:47:55,290 - INFO - 185     Yes
+2715     No
+3825     No
+1807    Yes
+132      No
+       ... 
+6366     No
+315      No
+2439     No
+5002     No
+1161    Yes
+Name: Churn, Length: 1409, dtype: object

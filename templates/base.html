@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ title if title else 'Churn Prediction Dashboard' }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-  <!-- ======= NAVBAR ======= -->
+  <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="nav-left">
-      <h2>📊 Churn Dashboard</h2>
+    <div class="nav-brand">
+      <a href="/" class="brand">
+        <span class="brand-emoji">📊</span> <span>Churn Dashboard</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleMenu()">
+        ☰
+      </button>
     </div>
-    <div class="nav-right">
-      <a href="/" class="{% if title == 'Prediction' %}active{% endif %}">Prediction</a>
-      <a href="/about" class="{% if title == 'About Model' %}active{% endif %}">About Model</a>
-      <a href="/developer" class="{% if title == 'Developer' %}active{% endif %}">Developer</a>
+    <div id="nav-links" class="nav-links">
+      <a href="/" class="nav-link {% if title == 'Prediction' %}active{% endif %}">Prediction</a>
+      <a href="/about" class="nav-link {% if title == 'About Model' %}active{% endif %}">About Model</a>
+      <a href="/developer" class="nav-link {% if title == 'Developer' %}active{% endif %}">Developer</a>
+      <a href="/readme" class="nav-link {% if title == 'README' %}active{% endif %}">README</a>
     </div>
   </nav>
 
-  <!-- ======= MAIN CONTENT ======= -->
-  <div class="dashboard">
-    {% block content %}
-    {% endblock %}
-  </div>
+  <!-- MAIN -->
+  <main class="page">
+    {% block content %}{% endblock %}
+  </main>
 
+  <footer class="footer">
+    <p>© {{ 2025 }} Telecom Churn Prediction • Built with Flask</p>
+  </footer>
+
+<script>
+function toggleMenu() {
+  const links = document.getElementById('nav-links');
+  links.classList.toggle('open');
+}
+</script>
 </body>
 </html>

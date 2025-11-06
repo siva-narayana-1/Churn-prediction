@@ -1098,3 +1098,113 @@
 2025-11-05 19:30:25,715 - INFO - MonthlyCharges_qt_outl----->0.16324221831411773
 2025-11-05 19:30:25,715 - INFO - TotalCharges_qt_outl----->-0.2241082964111486
 2025-11-05 19:30:25,715 - INFO - ['tenure', 'YearStayed', 'MonthlyCharges_qt_outl', 'TotalCharges_qt_outl']
+2025-11-06 14:47:55,319 - INFO - Befor shape:(5634, 27)
+2025-11-06 14:47:55,333 - INFO - Chi score data frame :
+                                  Features   Chi_score       p values
+0                                Contract  873.211647  6.537090e-192
+24         PaymentMethod_Electronic check  328.970764   1.610488e-73
+8             InternetService_Fiber optic  286.338882   3.121031e-64
+10     OnlineSecurity_No internet service  222.180842   3.024801e-50
+18        StreamingTV_No internet service  222.180842   3.024801e-50
+16        TechSupport_No internet service  222.180842   3.024801e-50
+20    StreamingMovies_No internet service  222.180842   3.024801e-50
+14   DeviceProtection_No internet service  222.180842   3.024801e-50
+9                      InternetService_No  222.180842   3.024801e-50
+12       OnlineBackup_No internet service  222.180842   3.024801e-50
+11                     OnlineSecurity_Yes  119.252526   9.221060e-28
+17                        TechSupport_Yes  106.046669   7.201899e-25
+4                          Dependents_Yes  104.146764   1.878713e-24
+26                          SeniorCitizen  102.275240   4.831939e-24
+22                   PaperlessBilling_Yes   84.520367   3.802772e-20
+23  PaymentMethod_Credit card (automatic)   80.516452   2.882947e-19
+3                             Partner_Yes   58.775844   1.766973e-14
+25             PaymentMethod_Mailed check   37.176717   1.078943e-09
+13                       OnlineBackup_Yes   24.277148   8.342293e-07
+15                   DeviceProtection_Yes   14.833141   1.174533e-04
+21                    StreamingMovies_Yes   14.429373   1.455148e-04
+19                        StreamingTV_Yes   12.486572   4.098877e-04
+7                       MultipleLines_Yes    4.240435   3.947206e-02
+1                                     sim    1.267501   2.602359e-01
+6          MultipleLines_No phone service    0.401322   5.264072e-01
+2                             gender_Male    0.377925   5.387158e-01
+5                        PhoneService_Yes    0.043591   8.346163e-01
+2025-11-06 14:47:55,333 - INFO - Removed columns: ['MultipleLines_No phone service', 'gender_Male', 'PhoneService_Yes']
+2025-11-06 14:47:55,333 - INFO - Befor shape:(5634, 24)
+2025-11-06 14:47:55,382 - INFO - Constant filter Constant method is applied....
+2025-11-06 14:47:55,382 - INFO -       Contract  sim  Partner_Yes  Dependents_Yes  ...  PaymentMethod_Credit card (automatic)  PaymentMethod_Electronic check  PaymentMethod_Mailed check  SeniorCitizen
+2142       1.0    2          0.0             1.0  ...                                    0.0                             0.0                         1.0              0
+1623       2.0    1          0.0             0.0  ...                                    0.0                             0.0                         0.0              0
+6074       0.0    0          1.0             0.0  ...                                    0.0                             1.0                         0.0              0
+1362       0.0    1          0.0             0.0  ...                                    0.0                             1.0                         0.0              0
+6754       2.0    2          0.0             1.0  ...                                    0.0                             0.0                         0.0              0
+...        ...  ...          ...             ...  ...                                    ...                             ...                         ...            ...
+3772       0.0    3          1.0             0.0  ...                                    0.0                             1.0                         0.0              0
+5191       2.0    0          1.0             1.0  ...                                    1.0                             0.0                         0.0              0
+5226       0.0    0          1.0             1.0  ...                                    0.0                             1.0                         0.0              0
+5390       0.0    2          0.0             0.0  ...                                    0.0                             1.0                         0.0              1
+860        1.0    1          0.0             0.0  ...                                    1.0                             0.0                         0.0              0
+
+[5634 rows x 24 columns]
+2025-11-06 14:47:55,396 - INFO - (5634, 24)
+2025-11-06 14:47:55,396 - INFO - Columns in the train data are : 24 -> After applyin the constant columns with variance not 0 are : 24 and variance with 0 are : 0
+2025-11-06 14:47:55,396 - INFO - Columns after droping are : Index(['Contract', 'sim', 'Partner_Yes', 'Dependents_Yes', 'MultipleLines_Yes',
+       'InternetService_Fiber optic', 'InternetService_No',
+       'OnlineSecurity_No internet service', 'OnlineSecurity_Yes',
+       'OnlineBackup_No internet service', 'OnlineBackup_Yes',
+       'DeviceProtection_No internet service', 'DeviceProtection_Yes',
+       'TechSupport_No internet service', 'TechSupport_Yes',
+       'StreamingTV_No internet service', 'StreamingTV_Yes',
+       'StreamingMovies_No internet service', 'StreamingMovies_Yes',
+       'PaperlessBilling_Yes', 'PaymentMethod_Credit card (automatic)',
+       'PaymentMethod_Electronic check', 'PaymentMethod_Mailed check',
+       'SeniorCitizen'],
+      dtype='object')
+2025-11-06 14:47:55,396 - INFO - Constant filter Quasi Constant method is applied....
+2025-11-06 14:47:55,415 - INFO - Columns in the train data are : 24 -> After applyin the constant columns with variance not 0 are : 24 and variance with 0 are : 0
+2025-11-06 14:47:55,416 - INFO - Columns after droping are : Index(['Contract', 'sim', 'Partner_Yes', 'Dependents_Yes', 'MultipleLines_Yes',
+       'InternetService_Fiber optic', 'InternetService_No',
+       'OnlineSecurity_No internet service', 'OnlineSecurity_Yes',
+       'OnlineBackup_No internet service', 'OnlineBackup_Yes',
+       'DeviceProtection_No internet service', 'DeviceProtection_Yes',
+       'TechSupport_No internet service', 'TechSupport_Yes',
+       'StreamingTV_No internet service', 'StreamingTV_Yes',
+       'StreamingMovies_No internet service', 'StreamingMovies_Yes',
+       'PaperlessBilling_Yes', 'PaymentMethod_Credit card (automatic)',
+       'PaymentMethod_Electronic check', 'PaymentMethod_Mailed check',
+       'SeniorCitizen'],
+      dtype='object')
+2025-11-06 14:47:55,420 - INFO - Constant filter Constant method is applied....
+2025-11-06 14:47:55,420 - INFO -       tenure  YearStayed  MonthlyCharges_qt_outl  TotalCharges_qt_outl
+2142      21        2016               -0.147316             -0.038911
+1623      54        2019                0.995273              1.027297
+6074       1        2015               -0.963839             -2.013875
+1362       4        2015               -0.018820             -0.896799
+6754       0        2014               -0.184216             -1.521194
+...      ...         ...                     ...                   ...
+3772       1        2015                0.893908             -1.218230
+5191      23        2016                0.744694              0.285781
+5226      12        2015               -0.972106             -0.791398
+5390      12        2015                1.088723             -0.112459
+860       26        2017               -1.509656             -0.622217
+
+[5634 rows x 4 columns]
+2025-11-06 14:47:55,420 - INFO - (5634, 4)
+2025-11-06 14:47:55,420 - INFO - Columns in the train data are : 4 -> After applyin the constant columns with variance not 0 are : 4 and variance with 0 are : 0
+2025-11-06 14:47:55,420 - INFO - Columns after droping are : Index(['tenure', 'YearStayed', 'MonthlyCharges_qt_outl',
+       'TotalCharges_qt_outl'],
+      dtype='object')
+2025-11-06 14:47:55,420 - INFO - Constant filter Quasi Constant method is applied....
+2025-11-06 14:47:55,420 - INFO - Columns in the train data are : 4 -> After applyin the constant columns with variance not 0 are : 4 and variance with 0 are : 0
+2025-11-06 14:47:55,420 - INFO - Columns after droping are : Index(['tenure', 'YearStayed', 'MonthlyCharges_qt_outl',
+       'TotalCharges_qt_outl'],
+      dtype='object')
+2025-11-06 14:47:55,420 - INFO - T=27.578, P=0.00000
+2025-11-06 14:47:55,435 - INFO - T=26.342, P=0.00000
+2025-11-06 14:47:55,435 - INFO - T=-12.417, P=0.00000
+2025-11-06 14:47:55,435 - INFO - T=17.258, P=0.00000
+2025-11-06 14:47:55,435 - INFO - Selected Features: ['tenure', 'YearStayed', 'MonthlyCharges_qt_outl', 'TotalCharges_qt_outl']
+2025-11-06 14:47:55,435 - INFO - tenure----->-0.34492502696211425
+2025-11-06 14:47:55,435 - INFO - YearStayed----->-0.33119579927389253
+2025-11-06 14:47:55,435 - INFO - MonthlyCharges_qt_outl----->0.16324221831411773
+2025-11-06 14:47:55,435 - INFO - TotalCharges_qt_outl----->-0.2241082964111486
+2025-11-06 14:47:55,435 - INFO - ['tenure', 'YearStayed', 'MonthlyCharges_qt_outl', 'TotalCharges_qt_outl']
